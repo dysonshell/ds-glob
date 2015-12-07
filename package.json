@@ -1,0 +1,23 @@
+{
+  "name": "ds-glob",
+  "version": "0.0.0",
+  "description": "find {APP_ROOT}/dsc/some_module first, then {APP_ROOT}/node_modules/@dsc/some_module",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/cases/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:dysonshell/ds-glob.git"
+  },
+  "author": "undoZen <undozen@creditcloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "co": "^4",
+    "glob": "^6",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
