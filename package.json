@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:dysonshell/ds-glob.git"
+    "url": "ssh://git@github.com/dysonshell/ds-glob.git"
   },
   "author": "undoZen <undozen@creditcloud.com>",
   "license": "MIT",
