@@ -1,7 +1,9 @@
 'use strict';
 var tape = require('tape');
-process.env.APP_ROOT = __dirname;
-process.env.DS_COMPONENT_PREFIX = 'dsc';
+GLOBAL.DSCONFIG = {
+    APP_ROOT: __dirname,
+    COMPONENT_PREFIX: 'dsc',
+};
 var dsGlob = require('../../');
 tape(function(test) {
     test.plan(3);
