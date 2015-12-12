@@ -8,7 +8,8 @@ var config = require('config');
 // config
 var APP_ROOT = config.dsAppRoot;
 var DSC = config.dsComponentPrefix || 'dsc';
-DSC = DSC.replace(/^\/+/, '').replace(/\/+$/, '') + '/';
+var DSCns = DSC.replace(/^\/+/, '').replace(/\/+$/, '');
+DSC = DSCns + '/';
 
 var dsGlob = exports = module.exports = function (pattern, cb) {
     if (pattern.indexOf(DSC) !== 0) {
@@ -21,7 +22,8 @@ var dsGlob = exports = module.exports = function (pattern, cb) {
             }))
             .concat((yield glob.bind(glob, 'node_modules/@' + pattern, {
                 cwd: APP_ROOT
-            })).map(removeLeading))))
+            })).map(removeLeading))
+        ));
     }).catch(cb);
 }
 dsGlob.sync = function (pattern) {
@@ -34,9 +36,10 @@ dsGlob.sync = function (pattern) {
         })
         .concat(glob.sync('node_modules/@' + pattern, {
             cwd: APP_ROOT
-        }).map(removeLeading)))
+        }).map(removeLeading))
+    );
 }
 
 function removeLeading(filePath) {
-    return filePath.replace(/^node_modules\/@/, '');
+    return filePath.replace(/^node_modules\/@?/, '');
 }
